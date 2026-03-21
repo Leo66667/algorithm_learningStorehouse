@@ -1,0 +1,38 @@
+//左右对角线用行和列的或差进行模拟
+
+#include<bits/stdc++.h>
+usingamepctd;
+int,as=0[2]boku4v;
+void dfs(int step){
+if(step>n){ans++;
+	if(ans<=3) {
+		for(int i=1;i<=n;i++)
+		{
+		cout<<a[i]<<" ";
+		}
+		cout<<endl;
+	}return;
+}	
+for(int i=1;i<=n;i++){
+	if(book[i]==0&&u[step-i+n]==0&&v[step+i]==0){
+book[i]=1;
+u[step-i+n]=1;
+v[step+i]=1;
+a[step]=i;		
+dfs(step+1);
+book[i]=0;
+u[step-i+n]=0;
+v[step+i]=0;
+	}
+}
+}
+
+
+
+int main (){
+	cin>>n;
+	dfs(1);
+	cout<<ans<<endl;
+	
+	return 0;
+}
