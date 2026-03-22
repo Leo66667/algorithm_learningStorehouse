@@ -5,7 +5,7 @@ int n;
 char a[N][N];
 bool book[N][N];
 int xx[]={1,1,1,0,0,-1,-1,-1};
-int yy[]={1,0,-1,1,-1,1,0,1};
+int yy[]={1,0,-1,1,-1,1,0,-1};
 string s="yizhong";
 void dfs(int x,int y){
 	for(int i=0;i<8;i++){int flag=1;
