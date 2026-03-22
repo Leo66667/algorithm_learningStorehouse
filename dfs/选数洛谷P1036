@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>     
+using namespace  std;
+int a[30],ans=0,n,k;
+int sum=0;
+
+bool judge(int s){
+	if(s<2)return false;
+	for(int i=2;i<=sqrt(s);i++){
+		if (s%i==0){
+			return false;
+		}
+	}
+return true;
+}
+void dfs(int step,int start){
+	if(step==k){
+		if(judge(sum)){
+			ans++;
+		}
+	
+		return;
+	}
+	
+	for(int i=start;i<=n;i++){
+		
+		sum+=a[i];
+	dfs(step+1,i+1);
+	sum-=a[i];
+	
+	
+	}
+	}
+	
+	
+
+int main(){
+	
+	cin>>n>>k;
+	for(int i=1;i<=n;i++){
+		cin>>a[i];
+	}
+	dfs(0,1);
+	cout<<ans<<endl;
+	return 0;
+}
