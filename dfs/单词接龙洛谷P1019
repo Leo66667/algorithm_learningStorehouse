@@ -1,0 +1,42 @@
+#include<bits/stdc++.h>
+using namespace std;
+int n,ans=0;
+string a[25];
+int book[25];
+
+void dfs(string x,int s){
+	ans=max(ans,s);
+	for(int i=1;i<=n;i++){
+		int p=1;
+	int la=x.length();
+	int lb=a[i].length();
+	while(p<min(la,lb)){
+		if(x.substr(la-p)==a[i].substr(0,p)&&book[i]<2){
+			book[i]++;
+			dfs(a[i],s+lb-p);
+			book[i]--;
+			break;
+		}
+		p++;
+	}
+	}
+}
+int main (){
+	cin>>n;
+	for(int i=1;i<=n;i++){
+		cin>>a[i];
+	}
+	char tou;
+	cin>>tou;
+	
+	for(int i=1;i<=n;i++){
+		if(a[i][0]==tou){
+			book[i]++;
+		dfs(a[i],a[i].length());
+			book[i]--;
+		}
+	}
+	
+	cout<<ans<<endl;
+	return  0;
+}
